@@ -1,4 +1,4 @@
-# check_process_exporter
+# Check Process Exporter
 
 Prometheus exporter to check the 'running' status of a process
 
