@@ -2,7 +2,7 @@
 
 search_list:
 
-#### Example
+#### Example ###########
 #
 #  example_a:
 #    type: process-name
@@ -13,7 +13,7 @@ search_list:
 #      - 'bin/bash'
 #      - ''
 #      - 'script.sh'
-####
+
 
   node_exporter:
     type: process-name
