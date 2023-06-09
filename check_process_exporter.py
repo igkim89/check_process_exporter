@@ -1,12 +1,10 @@
 
 import time
-import os
 import argparse
 import logging
 import psutil
 import yaml
-from glob import glob
-from prometheus_client import start_http_server, Gauge, Summary
+from prometheus_client import start_http_server, Gauge
 
 # Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -16,7 +14,7 @@ parser = argparse.ArgumentParser()
 
 # required arg
 parser.add_argument('-c', '--config', required=True, help="configuration file")
-parser.add_argument('-p', '--port', required=True, help="export http port")
+parser.add_argument('-p', '--port', required=False, default="9439", help="export http port")
 args = parser.parse_args()
 
 
@@ -67,7 +65,7 @@ class CheckProcessExporter:
         self.metric_dict[metric_name].set(self.check_process(metric_name))
 
     def main(self):
-        exporter_port = int(os.environ.get("CHECK_PROCESS_EXPORTER_PORT", self.port))
+        exporter_port = int(self.port)
         start_http_server(exporter_port)
         logging.info('Starting check_process_exporter.')
         logging.info(f'listening on {exporter_port} port..')
