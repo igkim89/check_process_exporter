@@ -19,10 +19,6 @@ search_list:
     type: process-name
     psname: 'node_exporter'
 
-  kakaotalk:
-    type: process-name
-    psname: 'kakao'
-
   airflow_scheduler:
     type: cmdline
     cmdlist:
