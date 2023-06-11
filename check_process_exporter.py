@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 parser = argparse.ArgumentParser()
 
 # required arg
-parser.add_argument('-c', '--config', required=False, default="conf/config.yml", help="configuration file")
+parser.add_argument('-c', '--config', required=False, default="./conf/config.yml", help="configuration file")
 parser.add_argument('-p', '--port', required=False, default="9439", help="export http port")
 args = parser.parse_args()
 
